@@ -1,0 +1,274 @@
+<robot name="pi_robot">
+
+	<!-- * * * Link Definitions * * * -->
+
+ 	<link name="base_link">
+		<visual>
+		    <origin xyz="0 0 0.03" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.3 0.3 0.06"/>
+			</geometry>
+			<material name="Cyan1">
+	       		<color rgba="0.2 0.0 0.0 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+	
+ 	
+	
+
+
+  	<link name="upper_base_link">
+		<visual>
+			<origin xyz="0 0 0.14" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.085" length="0.160"/>
+			</geometry>
+	     	<material name="Yellow1">
+				<color rgba="0.0 0.2 0.0 1.0"/>
+			</material>
+	   </visual>
+	</link>
+
+  	<link name="link1">
+		<visual>
+			<origin xyz="0 0 0.52" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.03" length=".6"/>
+			</geometry>
+	     	<material name="Cyan1">
+				<color rgba="0.2 0.0 0.0 1.0"/>
+			</material>
+	   </visual>
+	</link>
+	<link name="rev1">
+		<visual>
+			<origin xyz="0 0 0.9" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.04" length=".16"/>
+			</geometry>
+	     	<material name="Yellow1">
+				<color rgba="0.0 0.2 0.0 1.0"/>
+			</material>
+	   </visual>
+	</link>
+	<link name="link2">
+		<visual>
+		    <origin xyz="0 0.24 0.9" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.02 0.4 0.14"/>
+			</geometry>
+			<material name="Cyan1">
+	       		<color rgba="0.2 0.0 0.0 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+	<link name="rev2">
+		<visual>
+			<origin xyz="0 0.48 0.9" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.04" length=".16"/>
+			</geometry>
+	     	<material name="Yellow1">
+				<color rgba="0.0 0.2 0.0 1.0"/>
+			</material>
+	   </visual>
+	</link>
+	<link name="link3">
+		<visual>
+		    <origin xyz="0 0.24 0.9" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.02 0.4 0.14"/>
+			</geometry>
+			<material name="Cyan1">
+	       		<color rgba="0.2 0.0 0.0 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+	<link name="pris1">
+		<visual>
+			<origin xyz="0 0.48 1" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.04" length=".46"/>
+			</geometry>
+	     	<material name="Yellow1">
+				<color rgba="0.0 0.2 0.0 1.0"/>
+			</material>
+	   </visual>
+	</link>
+	<link name="link4">
+		<visual>
+			<origin xyz="0 0.48 0.9" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.02" length=".66"/>
+			</geometry>
+	     	<material name="Cyan1">
+				<color rgba="0.0 0.2 0.0 1.0"/>
+			</material>
+	   </visual>
+	</link>
+	<link name="endef1">
+		<visual>
+		    <origin xyz="0 -0.02 0.50" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.06 0.12 0.14"/>
+			</geometry>
+			<material name="Yellow1">
+	       		<color rgba="0.2 0.0 0.0 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+	<link name="endef2">
+		<visual>
+		    <origin xyz="0 -0.02 0.36" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.06 0.12 0.14"/>
+			</geometry>
+			<material name="Yellow1">
+	       		<color rgba="0.2 0.0 0.0 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+	<link name="grip1">
+		<visual>
+		    <origin xyz="0 0.02 0.28" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.2 0.04 0.02"/>
+			</geometry>
+			<material name="Yellow1">
+	       		<color rgba="0.2 0.0 0.0 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+		<link name="gripL">
+		<visual>
+		    <origin xyz="0.09 0.08 0.28" rpy="0 0 1.570"/>
+			<geometry>
+				<box size="0.14 0.03 0.02"/>
+			</geometry>
+			<material name="Yellow1">
+	       		<color rgba="0.14 0.0 0.0 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+	
+		<link name="gripR">
+		<visual>
+		    <origin xyz="-0.09 0.08 0.28" rpy="0 0 1.570"/>
+			<geometry>
+				<box size="0.14 0.03 0.02"/>
+			</geometry>
+			<material name="Yellow1">
+	       		<color rgba="0.14 0.0 0.0 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+  
+   
+	
+	<!-- * * * Joint Definitions * * * -->
+  
+	
+	<joint name="fixedbase" type="fixed">
+    	<parent link="base_link"/>
+    	<child link="upper_base_link"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	</joint>
+	
+	<joint name="fixed1" type="fixed">
+    	<parent link="upper_base_link"/>
+    	<child link="link1"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	</joint>
+	
+	<joint name="revjoint1" type="revolute">
+    	<parent link="link1"/>
+    	<child link="rev1"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+    	<axis xyz="0 0 1"/>
+    	<limit lower="-2.356" upper="2.356" effort="1" velocity="0.01"/>
+  	</joint>
+  	
+	<joint name="fixed2" type="fixed">
+    	<parent link="rev1"/>
+    	<child link="link2"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	</joint>
+	
+	<joint name="fixed3" type="fixed">
+    	<parent link="link2"/>
+    	<child link="rev2"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	</joint>	
+	
+	<joint name="revjoint2" type="revolute">
+    	<parent link="rev2"/>
+    	<child link="link3"/>
+    	<origin xyz="0 0.48 0" rpy="0 0 0"/>
+    	<axis xyz="0 0 1"/>
+    	<limit lower="-2.356" upper="2.356" effort="1" velocity="0.01"/>
+  	</joint>
+  	
+	<joint name="fixed4" type="fixed">
+    	<parent link="link3"/>
+    	<child link="pris1"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	</joint>
+		
+	<joint name="prisjoint1" type="prismatic">
+    	<parent link="pris1"/>
+    	<child link="link4"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+       	<limit lower="-0.26" upper="0.2" effort="1" velocity="0.01"/>
+        <axis xyz="0 0 1"/>
+	</joint>
+	
+	<joint name="revjoint3" type="revolute">
+    	<parent link="link4"/>
+    	<child link="endef1"/>
+    	<origin xyz="0 0.48 0" rpy="0 0 0"/>
+    	<axis xyz="0 0 1"/>
+    	<limit lower="-6.28319" upper="6.28319" effort="1" velocity="0.01"/>
+  	</joint>
+  	
+	<joint name="fixed5" type="fixed">
+    	<parent link="endef1"/>
+    	<child link="endef2"/>
+    	<origin xyz="0 -0.12 0" rpy="0 0 0"/>
+	</joint>
+		
+	<joint name="fixed6" type="fixed">
+    	<parent link="endef2"/>
+    	<child link="grip1"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	</joint>	
+	
+	<!--joint name="fixed7" type="fixed">
+    	<parent link="grip1"/>
+    	<child link="gripL"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	</joint-->	
+	
+	<!--joint name="fixed8" type="fixed">
+    	<parent link="grip1"/>
+    	<child link="gripR"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	</joint-->
+	
+	<joint name="prisjoint2" type="prismatic">
+    	<parent link="grip1"/>
+    	<child link="gripL"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+       	<limit lower="-0.04" upper="0" effort="10" velocity="0.3"/>
+        <axis xyz="1 0 0"/>
+	</joint>
+	
+	<joint name="prisjoint3" type="prismatic">
+    	<parent link="grip1"/>
+    	<child link="gripR"/>
+    	<origin xyz="0 0 0" rpy="0 0 0"/>
+       	<limit lower="0" upper="0.04" effort="10" velocity="0.3"/>
+        <axis xyz="1 0 0"/>
+	</joint>	
+
+</robot>
